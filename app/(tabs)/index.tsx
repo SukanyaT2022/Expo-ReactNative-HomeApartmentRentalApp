@@ -6,13 +6,22 @@ import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Link } from 'expo-router';
+import UserOwnerBarComp from '@/components/userOwnerBarComp';
+
+
 
 export default function HomeScreen() {
   return (
-   <View style={{ flex: 1, backgroundColor: '#f0f0f0' }}></View>
+   <View style={styles.container}>
+<UserOwnerBarComp />
+
+   </View>
+  
   );
 }
 
 const styles = StyleSheet.create({
- 
+ container:{
+padding: 40,
+    },
 });
