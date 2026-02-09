@@ -1,6 +1,8 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import React, { ReactNode, use } from "react";
 import { Ionicons, AntDesign } from "@expo/vector-icons";
+import { colors } from "@/constants/colors";
+
 interface UserOwnerBarCompProps {
   // imagePropOnly?: string;
   imageUrlProp?: string;
@@ -52,16 +54,16 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   title: {
-    fontSize: 18,
+    fontSize: 17,
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: "bold",
   },
   iconcontainer: {
     width: 50,
     height: 50,
-    backgroundColor: "#C0C0C0",
+    backgroundColor: colors.lightgray,
     borderRadius: 100,
     justifyContent: "center",
     alignItems: "center",

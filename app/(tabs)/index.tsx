@@ -1,6 +1,8 @@
 
+import FilterComp from "@/components/FilterComp";
+import InputComp from "@/components/InputComp";
 import UserOwnerBarComp from "@/components/UserOwnerBarComp";
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, EvilIcons, Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { Platform, StyleSheet, Text, View } from "react-native";
 
@@ -30,7 +32,17 @@ export default function HomeScreen() {
 </View>
         }
       />
-      
+      {/* end use component */}
+
+      {/* start search box */}
+<View style={styles.searchBoxFilterWrap}>
+<InputComp iconprops={<EvilIcons name="search" size={24} color="black" />} textprops="Search"/>
+<FilterComp iconprops={<Ionicons name="filter-circle-outline" size={24} color="black" />} />
+{/* below close main view */}
+</View>
+ {/* end search box */}
+
+
     </View>
   );
 }
@@ -38,6 +50,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 40,
+    gap: 20,
   },
    iconcontainer: {
     width: 40,
@@ -52,5 +65,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignContent: "center",
     gap:8,
-  }
+  },
+  searchBoxFilterWrap:{
+    flexDirection: "row",
+    gap: 10,
+  },
 });
