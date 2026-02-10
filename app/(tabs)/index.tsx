@@ -1,15 +1,16 @@
 
+import CatergoryBoxMap from "@/components/CatergoryBoxMap";
 import FilterComp from "@/components/FilterComp";
 import InputComp from "@/components/InputComp";
 import UserOwnerBarComp from "@/components/UserOwnerBarComp";
-import { AntDesign, EvilIcons, Ionicons } from "@expo/vector-icons";
+import { AntDesign, EvilIcons, Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { Platform, StyleSheet, Text, View } from "react-native";
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text>Home Screen</Text>
+      {/* <Text>Home Screen</Text> */}
       <UserOwnerBarComp 
       // imagePropOnly={require("@/assets/images/dog.jpg")}
         imageUrlProp="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -36,21 +37,29 @@ export default function HomeScreen() {
 
       {/* start search box */}
 <View style={styles.searchBoxFilterWrap}>
-<InputComp iconprops={<EvilIcons name="search" size={24} color="black" />} textprops="Search"/>
-<FilterComp iconprops={<Ionicons name="filter-circle-outline" size={24} color="black" />} />
+<View style={styles.searchBox}><InputComp  iconprops={<EvilIcons name="search" size={30} color="black" />} textprops="Search"/></View>
+<View style={styles.filterButton}><FilterComp style={styles.filterButton} iconprops={<Ionicons name="filter-circle-outline" size={40} color="black" />} /></View>
 {/* below close main view */}
 </View>
  {/* end search box */}
 
-
+{/* start home  or aprtment small box */}
+<View style={styles.catergoryBoxWrap}>
+  <CatergoryBoxMap title="Home" icon={<Ionicons name="home" size={24} color="black" />} />
+   <CatergoryBoxMap title="Apartment" icon={<MaterialIcons name="apartment" size={24} color="black" />} />
+    <CatergoryBoxMap title="Cottage" icon={<MaterialIcons name="cottage" size={24} color="black" />} />
+</View>
+{/* start home  or aprtment small box */}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 40,
+    padding: 20,
     gap: 20,
+    //on android margin top 25 and on ios margin top 20
+    marginTop: Platform.OS === "android" ? 25 : 40,
   },
    iconcontainer: {
     width: 40,
@@ -70,4 +79,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 10,
   },
+  searchBox: {
+  flex: 8, // 80%
+},
+filterButton: {
+  flex: 1, 
+  backgroundColor: "#C0C0C0",
+  borderRadius: 8,
+   justifyContent: "center",
+    alignItems: "center",
+},
+catergoryBoxWrap:{
+  flexDirection: "row",
+  gap: 10,
+}
 });
