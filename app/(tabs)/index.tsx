@@ -2,6 +2,7 @@
 import CatergoryBoxMap from "@/components/CatergoryBoxMap";
 import FilterComp from "@/components/FilterComp";
 import InputComp from "@/components/InputComp";
+import SquareProductComp from "@/components/SquareProductComp";
 import UserOwnerBarComp from "@/components/UserOwnerBarComp";
 import { AntDesign, EvilIcons, Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { Image } from "expo-image";
@@ -49,7 +50,13 @@ export default function HomeScreen() {
    <CatergoryBoxMap title="Apartment" icon={<MaterialIcons name="apartment" size={24} color="black" />} />
     <CatergoryBoxMap title="Cottage" icon={<MaterialIcons name="cottage" size={24} color="black" />} />
 </View>
-{/* start home  or aprtment small box */}
+{/* end home  or aprtment small box */}
+
+
+{/* start map sqauare Box component */}
+<SquareProductComp />
+{/* end map sqauare Box component */}
+
     </View>
   );
 }
