@@ -3,17 +3,25 @@ import React from "react";
 import { colors } from "@/constants/colors";
 import { Ionicons } from "@expo/vector-icons";
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-const SquareProductComp = () => {
+interface SquareProductCompProps {
+  imageUrl: string;
+  title: string;
+  location: string;
+  price: number;
+  rating: number;
+  isFavorite: boolean;
+}
+const SquareProductComp = ({imageUrl, title, location, price, rating, isFavorite}: SquareProductCompProps)=> {
   return (
     <View style={styles.container}>
       <View style={styles.wrapImageBox}>
         <View style={styles.wrapRateHeart}>
           <View style={styles.wrapRate}>
             <Ionicons name="star" size={12} color="yellow" />
-            <Text style={{ fontSize: 10, fontWeight: "500" }}>4.5</Text>
+            <Text style={{ fontSize: 10, fontWeight: "500" }}>{rating}</Text>
           </View>
           <Ionicons
-            name="heart"
+            name={isFavorite ? "heart" : "heart-outline"}
             size={20}
             color="red"
             style={styles.heartIcon}
@@ -21,16 +29,16 @@ const SquareProductComp = () => {
         </View>
         <Image
           source={{
-            uri: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            uri: imageUrl,
           }}
           style={styles.targetImg}
         />
       </View>
 <View style={styles.wrapTextSliderIcon}>
       <View style={styles.containerText}>
-        <Text style={styles.title}>smallHome</Text>
-        <Text style={styles.text}>NYC</Text>
-        <Text style={styles.price}>$2500</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.text}>{location}</Text>
+        <Text style={styles.price}>${price}</Text>
       </View>
       <FontAwesome6 name="circle-chevron-right" size={24} color="black" />
       </View>
@@ -42,15 +50,15 @@ export default SquareProductComp;
 
 const styles = StyleSheet.create({
   container: {
-    width: "50%",
-    height: 250,
+    width: 250,
+    height: 300,
     backgroundColor: colors.mediumgray,
     borderRadius: 10,
     padding: 10,
     margin: 10,
   },
   wrapImageBox: {
-    height: "70%",
+    height: 200,
   },
   wrapRateHeart: {},
   wrapRate: {
@@ -78,8 +86,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   containerText: {
-
-    paddingVertical: 10,
+gap: 2,
+paddingVertical: 10,
   },
   title: {
     fontSize: 15,

@@ -10,10 +10,10 @@ export const rentalProperties = [
     city: "Phuket",
     province: "Phuket",
     images: [
-      "https://example.com/phuket1-1.jpg",
-      "https://example.com/phuket1-2.jpg",
-      "https://example.com/phuket1-3.jpg",
-      "https://example.com/phuket1-4.jpg"
+      "https://plus.unsplash.com/premium_photo-1697730270201-bdfc5b81a675?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGhvbWUlMjBwaHVrZXR8ZW58MHx8MHx8fDA%3D",
+      "https://images.unsplash.com/photo-1750396372059-47fefe71fa03?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGhvbWUlMjBwaHVrZXR8ZW58MHx8MHx8fDA%3D",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aG9tZXxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1505691723518-36a5ac3be353?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGhvbWV8ZW58MHx8MHx8fDA%3D"
     ]
   },
   {
