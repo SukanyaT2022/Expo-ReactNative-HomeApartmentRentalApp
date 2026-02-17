@@ -12,6 +12,7 @@ import {
 import { Image } from "expo-image";
 import { FlatList, Platform, StyleSheet, Text, View } from "react-native";
 import { rentalProperties } from "../../constants/propertyList";
+import { globalStyle } from "@/constants/globalStyle";
 
 export default function HomeScreen() {
   return (
@@ -76,9 +77,14 @@ export default function HomeScreen() {
       </View>
       {/* end home  or aprtment small box */}
 
-      {/* start map sqauare Box component */}
+
+
+      {/* section1/ start map sqauare Box component */}
 
       <View style={styles.wrapMapSquareBox}>
+        <Text style={[globalStyle.titleText, styles.titleTextStyle]}>
+          Nearby Places
+        </Text>
         <FlatList
        horizontal={true}
           data={rentalProperties}
@@ -96,11 +102,39 @@ export default function HomeScreen() {
         />
       </View>
       {/* end map sqauare Box component */}
+
+{/* section2/ start recommend for you  */}
+      <View style={styles.mainBoxRecommend}>
+          <Text style={[globalStyle.titleText, styles.titleTextStyle]}>
+         Recommend for you
+        </Text>
+         <FlatList
+      //  horizontal={true}
+          data={rentalProperties}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <SquareProductComp
+              imageUrl={item.images[0]}
+              title={item.type}
+              price={item.price}
+              rating={item.rateStar}
+              isFavorite={item.isFavorite}
+              location={item.province}
+            />
+          )}
+        />
+      </View>
+{/* end recommend for you  */}
+
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+titleTextStyle:{
+paddingVertical:5,
+paddingLeft:10,
+},
   container: {
     padding: 10,
     gap: 20,
@@ -141,5 +175,8 @@ const styles = StyleSheet.create({
   },
   wrapMapSquareBox: {
     
+  },
+  mainBoxRecommend: { 
+
   },
 });
