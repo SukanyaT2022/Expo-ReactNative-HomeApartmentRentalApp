@@ -5,17 +5,19 @@ import SquareProductComp from "@/components/SquareProductComp";
 import UserOwnerBarComp from "@/components/UserOwnerBarComp";
 import {
   AntDesign,
-  EvilIcons,
   Ionicons,
   MaterialIcons,
 } from "@expo/vector-icons";
 import { Image } from "expo-image";
-import { FlatList, Platform, StyleSheet, Text, View } from "react-native";
+import { FlatList, Platform, ScrollView, StyleSheet, Text, View } from "react-native";
 import { rentalProperties } from "../../constants/propertyList";
 import { globalStyle } from "@/constants/globalStyle";
+import RecommendBoxComp from "@/components/RecommendBoxComp";
+
 
 export default function HomeScreen() {
   return (
+    <ScrollView>  
     <View style={styles.container}>
       {/* <Text>Home Screen</Text> */}
       <UserOwnerBarComp
@@ -28,7 +30,7 @@ export default function HomeScreen() {
           <View style={styles.iconParentWrap}>
             <View style={styles.iconcontainer}>
               <View style={styles.wrapIcon}></View>
-              <AntDesign name="bell" size={24} color="black" />
+            <Ionicons name="location-outline" size={24} color="black" />
             </View>
 
             {/* <View style={styles.iconcontainer}>
@@ -44,7 +46,7 @@ export default function HomeScreen() {
       <View style={styles.searchBoxFilterWrap}>
         <View style={styles.searchBox}>
           <InputComp
-            iconprops={<EvilIcons name="search" size={30} color="black" />}
+            iconprops={<Ionicons name="location-outline" size={24} color="black" />}
             textprops="Search"
           />
         </View>
@@ -90,6 +92,7 @@ export default function HomeScreen() {
           data={rentalProperties}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
+            <View style={{marginRight:12}}>
             <SquareProductComp
               imageUrl={item.images[0]}
               title={item.type}
@@ -98,11 +101,18 @@ export default function HomeScreen() {
               isFavorite={item.isFavorite}
               location={item.province}
             />
+              </View>
           )}
         />
       </View>
       {/* end map sqauare Box component */}
-
+<RecommendBoxComp
+  imageUrl="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  titleProp="Modern Apartment"
+  textProp="Beautiful modern apartment with stunning views."
+  priceProp={2500}
+  iconProp={<Ionicons name="location-outline" size={24} color="black" />}
+/>
 {/* section2/ start recommend for you  */}
       <View style={styles.mainBoxRecommend}>
           <Text style={[globalStyle.titleText, styles.titleTextStyle]}>
@@ -127,6 +137,7 @@ export default function HomeScreen() {
 {/* end recommend for you  */}
 
     </View>
+       </ScrollView>  
   );
 }
 

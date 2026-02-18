@@ -3,6 +3,7 @@ import React from "react";
 import { colors } from "@/constants/colors";
 import { Ionicons } from "@expo/vector-icons";
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import { size } from "@/constants/size";
 interface SquareProductCompProps {
   imageUrl: string;
   title: string;
@@ -53,9 +54,9 @@ const styles = StyleSheet.create({
     width: 250,
     height: 300,
     backgroundColor: colors.mediumgray,
-    borderRadius: 10,
+    borderRadius: size.borderRadius,
     padding: 10,
-    margin: 10,
+
   },
   wrapImageBox: {
     height: 200,
