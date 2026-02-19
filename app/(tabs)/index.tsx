@@ -106,13 +106,7 @@ export default function HomeScreen() {
         />
       </View>
       {/* end map sqauare Box component */}
-<RecommendBoxComp
-  imageUrl="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  titleProp="Modern Apartment"
-  textProp="Beautiful modern apartment with stunning views."
-  priceProp={2500}
-  iconProp={<Ionicons name="location-outline" size={24} color="black" />}
-/>
+
 {/* section2/ start recommend for you  */}
       <View style={styles.mainBoxRecommend}>
           <Text style={[globalStyle.titleText, styles.titleTextStyle]}>
@@ -123,14 +117,13 @@ export default function HomeScreen() {
           data={rentalProperties}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
-            <SquareProductComp
-              imageUrl={item.images[0]}
-              title={item.type}
-              price={item.price}
-              rating={item.rateStar}
-              isFavorite={item.isFavorite}
-              location={item.province}
-            />
+            <RecommendBoxComp
+  imageUrl={item.images[0]}
+  textProp={item.type}
+  priceProp={item.price}
+  iconProp={<Ionicons name="location-outline" size={20} color="black" />}
+  titleProp={item.province}
+        />   
           )}
         />
       </View>
@@ -143,8 +136,9 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
 titleTextStyle:{
-paddingVertical:5,
+paddingVertical:15,
 paddingLeft:10,
+fontSize:20,
 },
   container: {
     padding: 10,
